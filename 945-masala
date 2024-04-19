@@ -1,0 +1,17 @@
+#include<iostream>
+//#include<string>
+using namespace std;
+
+int main()
+{
+    double s = 1, a;
+    cin >> a;
+    while(true)
+    {
+        s *= (1 + a);
+        a *= a;
+        if(a < 0.00000000000000001) break;
+    }
+    printf("%.5f", s);
+    return 0;
+}    
