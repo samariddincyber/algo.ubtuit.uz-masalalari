@@ -1,0 +1,39 @@
+#include<iostream>
+#include<string>
+using namespace std;
+string qosh(string s)
+{
+    int k = 0;
+    for(int i = 0; i < s.length(); i++) k += int(s[i] - 48);
+    if(k % 9 == 0) return "9";
+    return to_string(9 - k % 9);
+}
+int qoldi(string s)
+{
+    int son = 11, qoldiq = 0;
+
+    
+    // Katta sonning har bir raqamini oddiy integerga o'tkazamiz
+    for (int i = 0; i < s.length(); i++) {
+        qoldiq = (qoldiq * 10 + (s[i] - '0')) % son;
+    }
+    return qoldiq;
+}
+int main()
+{
+    string s, s1;
+    cin >> s;
+    int k;
+    k = s.length();
+    s1 = qosh(s);
+    for(int i = 0; i < s.length(); i++)
+        if(s1[0] > s[i])
+        {
+            s.insert(i, s1);
+            break;
+        }
+    if(s.length() == k) s.insert(k, s1);
+    //cout << s << endl;
+    cout << qoldi(s);
+    return 0;
+}    
