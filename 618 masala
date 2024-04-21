@@ -1,0 +1,26 @@
+#include<iostream>
+#include<string>
+//#include<algorithm>
+//#include<math.h>
+//#include<iomanip>
+using namespace std;
+// int ekub(int a, int b);
+// long ekuk(long a, long b);
+int numbir(int n)
+{
+    int k = 0;
+    while(n > 0)
+    {
+        if(n % 2 == 1) k++;
+        n /= 2;
+    }
+    return k;
+}
+
+int main()
+{
+    int n;
+    cin >> n;
+    cout << numbir(n);
+    return 0;
+}
