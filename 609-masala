@@ -1,0 +1,44 @@
+#include<iostream>
+#include<string>
+using namespace std;
+long bintodec(string s)
+{
+    long res = 0, k = 1;
+    for(int i = s.length() - 1; i >= 0; i--)
+    {
+        if(s[i] == '1') res += k;
+        k *= 2;
+    }
+    return res;
+}
+string dectobin(long n)
+{
+    string s = "", res = "";
+    while(n > 0)
+    {
+        s += to_string(n % 2);
+        n /= 2;
+    }
+    for(int i = s.length() - 1; i >= 0; i--)
+    {
+        res += s[i];
+    }
+    s = res;
+    while(res.length() < 31)
+    {
+        res.insert(0, "0");
+    }
+    for(int i = 0; i < res.length(); i++)
+    {
+        if(res[i] == '1') res[i] = '0';
+        else res[i] = '1';
+    }
+    return res;
+}
+int main()
+{
+    long n;
+    cin >> n;
+    cout << bintodec(dectobin(n));
+    return 0;
+}    
